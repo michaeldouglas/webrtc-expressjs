@@ -1,0 +1,13 @@
+{
+  "name": "docker-api",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node api.js"
+  },
+  "dependencies": {
+    "node-env-file": "^0.1.8",
+    "nodemon": "^1.10.2",
+    "express": "^4.14.0",
+    "restify-router": "^0.2.1"
+  }
+}

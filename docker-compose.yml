@@ -1,0 +1,26 @@
+#docker-compose.yml
+version: '2'
+services:
+    web:
+        container_name: web1-static
+        build: ./web
+        command: npm start
+        environment:
+            PORT: 3000
+            API_HOST: 'webrtcapi'
+            API_PORT: 4000
+        ports:
+            - 3000:3000
+        depends_on:
+            - webrtcapi
+    webrtcapi:
+        container_name: api-static
+        build: ./api
+        command: node_modules/.bin/nodemon --exec npm start
+        environment:
+            PORT: 4000
+        ports:
+            - "4000:4000"
+        volumes:
+            - ./api:/home/api
+            - /home/api/node_modules
