@@ -2,8 +2,21 @@
 let express = require('express');
 let http = require('http');
 let app = express();
+let mustacheExpress = require('mustache-express');
 
-app.get('/', (req, res) => {
+// middlewares
+app.engine('mustache', mustacheExpress());
+app.set('view engine', 'mustache');
+app.set('views', __dirname + '/resources/views');
+app.use(express.static(__dirname + '/resources/views'));
+app.use('/assets', express.static(__dirname + '/assets'));
+app.use('/modules', express.static(__dirname + '/node_modules'));
+
+// Application Routes
+var routes = require('./routes')
+routes.set(app);
+
+/*app.get('/', (req, res) => {
     let opt = {
         host: process.env.API_HOST,
         port: process.env.API_PORT
@@ -13,7 +26,7 @@ app.get('/', (req, res) => {
             res.send(`<h1>tete ${chunk}</h1>`);
         });
     }).end();
-});
+});*/
 
 const PORT = process.env.PORT;
 

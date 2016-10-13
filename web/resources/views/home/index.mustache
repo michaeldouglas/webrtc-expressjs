@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WEBRTC</title>
+
+    <link href="/assets/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container" id="hello">
+        <div class="row">
+            <video autoplay></video>
+            <div><button id = "btnGetAudioTracks">getAudioTracks()
+            </button></div>
+            <div><button id = "btnGetTrackById">getTrackById()
+            </button></div>
+            <div><button id = "btnGetTracks">getTracks()</button></div>
+            <div><button id = "btnGetVideoTracks">getVideoTracks()
+            </button></div>
+            <div><button id = "btnRemoveAudioTrack">removeTrack() - audio
+            </button></div>
+            <div><button id = "btnRemoveVideoTrack">removeTrack() - video
+            </button></div>
+        </div>
+        <div class="row">
+            <h1>${msg}</h1>
+            <input class="form-control" type="text" v-model="msg">
+        </div>
+        <div class="row">
+            <h1>List Peoples</h1>
+            <ul>
+                <li v-for="people in peoples">
+                    ${people.name}
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <h1>My List Elements</h1>
+            <input class="form-control" type="text" v-model="newElement" v-on:keyup.enter="addElement"/>
+            <ul>
+                <li v-for="element in elements" v-on:="">
+                    ${ element.title }
+                    <a href="#" @click="removeElement($event)">X</a>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <h1>v-on</h1>
+            <button @click="myClick">
+                Click
+            </button>
+            <input type="text" @keyup="myKeyUp" placeholder="myKeyUp" />
+            <input type="text" @keyup.enter="myKeyUp" placeholder="myKeyUp.enter" />
+        </div>
+    </div>
+
+    <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- VUE -->
+    <script src="/modules/vue/dist/vue.js"></script>
+    <script src="/modules/vue-resource/dist/vue-resource.js"></script>
+
+    <!-- APP -->
+    <script src="/assets/js/app.min.js"></script>
+</body>
+</html>
